@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 #llamar al controller
 use App\Http\Controllers\challengeController;
+use App\Http\Controllers\cursoController;
 
  #*lista todos los retos
 Route::get('/challenge', [challengeController::class, 'index']);
@@ -20,3 +21,6 @@ Route::put('/challenge/{id}', [challengeController::class, 'update']);
 
 #*borra un reto
 Route::delete('/challenge/{id}', [challengeController::class, 'destroy']);
+
+# listar cursos
+Route::get('/cursos', [cursoController::class, 'getCursos']);
