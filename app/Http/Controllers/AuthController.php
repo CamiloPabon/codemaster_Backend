@@ -55,4 +55,12 @@ class AuthController extends Controller
         $response = ['message' => 'Credenciales incorrectas, intentelo de nuevo'];
         return response()->json($response, 400);
     }
+
+    public function logout(Request $req)
+    {
+        $user = $req->user();
+        $user->tokens()->delete();
+        return response()->json(['message' => 'Sesión cerrada correctamente'], 200);
+    }
+
 }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Challenge;
 use Illuminate\Support\Facades\Validator;
 
-class challengeController extends Controller
+class ChallengeController extends Controller
 {
     public function index()
     {
