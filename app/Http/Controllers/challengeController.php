@@ -134,5 +134,14 @@ class challengeController extends Controller
         ];
         return response()->json($data, 200);
     }
+    
+    public function classroom()
+    {
+        return $this->hasMany(Classroom::class, 'challenge_id');
+    }
 
+    public function statistics()
+    {
+        return $this->hasMany(Statistic::class, 'challenge_id');
+    }
 }

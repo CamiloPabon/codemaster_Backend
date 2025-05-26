@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 #llamar al controller
 use App\Http\Controllers\challengeController;
 use App\Http\Controllers\cursoController;
+use App\Http\Controllers\AuthController;
 
  #*lista todos los retos
 Route::get('/challenge', [challengeController::class, 'index']);

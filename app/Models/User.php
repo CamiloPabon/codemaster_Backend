@@ -5,12 +5,14 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -20,10 +22,12 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'email_verified_at', 
         'password',
-        'rol_idROLES', // nuevo
-        'statistic_idstatistic', // opcional
-        'statistic_challenge_id' // opcional
+        'remember_token',
+        'created_at',
+        'updated_at',
+        'rol_idROLES'
     ];
 
     /**
@@ -51,16 +55,6 @@ class User extends Authenticatable
     public function rol()
     {
         return $this->belongsTo(Rol::class, 'rol_idROLES');
-    }
-
-    public function statistic()
-    {
-        return $this->belongsTo(Statistic::class, 'statistic_idstatistic');
-    }
-
-    public function challenge()
-    {
-        return $this->belongsTo(Challenge::class, 'statistic_challenge_id');
     }
 
 }

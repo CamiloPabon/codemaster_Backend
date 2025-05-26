@@ -18,10 +18,6 @@ class Stadistics extends Model
         'idRANKING',
         'challenge_id'
     ];
-    public function user()
-    {
-        return $this->hasOne(User::class, 'statistic_idstatistic');
-    }
 
     public function challenge()
     {

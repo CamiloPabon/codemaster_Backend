@@ -1,15 +1,14 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Challenge extends Model
 {
-    use HasFactory;
-
     protected $table = 'challenge';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+
     protected $fillable = [
         'name',
         'description',
@@ -17,4 +16,13 @@ class Challenge extends Model
         'lenguage'
     ];
 
+    public function classroom()
+    {
+        return $this->hasMany(Classroom::class, 'challenge_id');
+    }
+
+    public function statistics()
+    {
+        return $this->hasMany(Statistic::class, 'challenge_id');
+    }
 }
