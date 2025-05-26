@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Challenge;
+use App\Models\classroom;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
@@ -11,16 +11,16 @@ class ClassroomController extends Controller
     public function index()
     {
         // Lógica para listar todos los Classroom
-        $challenges = Challenge::all();
+        $classroom = classroom::all();
         
-        if ($challenges->isEmpty()) {
+        if ($classroom->isEmpty()) {
             $data = [
-                'message' => 'No hay retos disponibles',
+                'message' => 'No hay cursos disponibles',
                 'status' => 200
             ];
-            return response()->json($data, 404);
+            return response()->json($data, 200);
         }
-        return response()->json($challenges ,200);
+        return response()->json($classroom, 200);
     }
     
 }

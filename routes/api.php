@@ -42,7 +42,9 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 ##!# Rutas para Classroom
 #ruta para ver todos los Classroom
-Route::get('/classroom', [ClassroomController::class, 'index']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/classroom', [ClassroomController::class, 'index']);
+});
 #ruta para ver los Classroom del usuario
 #Route::get('/classroom/{id}', [ClassroomController::class, 'show']);
 #ruta para crear un Classroom
