@@ -12,16 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('challenge', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 255);
-            $table->string('description', 255);
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('description');
             $table->integer('difficulty');
             $table->string('lenguage', 20);
             $table->timestamps();
         });
     }
 
- 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists('challenge');

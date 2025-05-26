@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol_idROLES', // nuevo
+        'statistic_idstatistic', // opcional
+        'statistic_challenge_id' // opcional
     ];
 
     /**
@@ -45,4 +48,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class, 'rol_idROLES');
+    }
+
+    public function statistic()
+    {
+        return $this->belongsTo(Statistic::class, 'statistic_idstatistic');
+    }
+
+    public function challenge()
+    {
+        return $this->belongsTo(Challenge::class, 'statistic_challenge_id');
+    }
+
 }

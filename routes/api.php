@@ -24,3 +24,7 @@ Route::delete('/challenge/{id}', [challengeController::class, 'destroy']);
 
 # listar cursos
 Route::get('/cursos', [cursoController::class, 'getCursos']);
+
+# APARTADO DE LOGIN Y REGISTER
+Route::post('/auth/register', [AuthController::class, 'register']);
+Route::post('/auth/login', [AuthController::class, 'login']);
